@@ -140,7 +140,7 @@ daybook/
 <!-- 1. docs/screenshots/dashboard.png — the Dashboard page (activity heatmap + project cards) -->
 <!-- 2. docs/screenshots/summary.png — the Calendar page on a day with a generated summary (narrative, project bullets, other activities) -->
 
-![Dashboard](docs/screenshots/dashboard.png)
+![Dashboard](docs/screenshots/calender.png)
 ![Daily summary](docs/screenshots/summary.png)
 
 ## How I built this
