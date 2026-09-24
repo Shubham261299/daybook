@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard — Daybook Shubham</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <nav>
+    <span class="brand">Daybook Shubham</span>
+    <a href="/">Calendar</a>
+    <a href="/dashboard" class="active">Dashboard</a>
+    <a href="/ask">Ask</a>
+    <a href="/tasks">Tasks</a>
+    <a href="/settings">Projects</a>
+  </nav>
+  <main>
+    <div class="banner" id="quiet-banner" hidden></div>
+
+    <div class="stat-row" id="stat-row"></div>
+
+    <div class="panel" id="heatmap-panel" style="margin-bottom:16px;">
+      <h2>Activity</h2>
+      <div class="heatmap-scroll">
+        <div class="heatmap-grid" id="heatmap-grid"></div>
+      </div>
+      <div class="heatmap-legend">
+        <span>Less</span>
+        <div class="heatmap-cell" data-level="0"></div>
+        <div class="heatmap-cell" data-level="1"></div>
+        <div class="heatmap-cell" data-level="2"></div>
+        <div class="heatmap-cell" data-level="3"></div>
+        <div class="heatmap-cell" data-level="4"></div>
+        <span>More</span>
+      </div>
+    </div>
+
+    <div class="dash-columns">
+      <div class="panel">
+        <h2>Your projects</h2>
+        <div id="projects-list"></div>
+      </div>
+
+      <div class="panel">
+        <h2>Latest summary</h2>
+        <div id="recent-summary"></div>
+      </div>
+    </div>
+
+    <div class="panel" id="backfill-panel" style="margin-top:16px;" hidden>
+      <h2>Missing summaries</h2>
+      <div id="backfill-content"></div>
+    </div>
+  </main>
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/colors.js"></script>
+  <script src="/static/js/overview.js"></script>
+</body>
+</html>

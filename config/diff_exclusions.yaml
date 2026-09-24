@@ -1,0 +1,42 @@
+# Glob patterns (matched against the file path within the repo, case-insensitive)
+# for files whose full diff/patch text should NOT be written to disk.
+#
+# Commit metadata (message, stats, files touched) is always stored regardless —
+# this only controls whether the noisy full diff content gets saved as a patch file.
+exclude:
+  # Lockfiles
+  - "*.lock"
+  - "package-lock.json"
+  - "yarn.lock"
+  - "pnpm-lock.yaml"
+  - "poetry.lock"
+  - "Pipfile.lock"
+
+  # Dependency / build directories
+  - "node_modules/*"
+  - "**/node_modules/*"
+  - "dist/*"
+  - "**/dist/*"
+  - "build/*"
+  - "**/build/*"
+  - "__pycache__/*"
+  - "**/__pycache__/*"
+  - ".venv/*"
+  - "venv/*"
+
+  # Minified / compiled / generated assets
+  - "*.min.js"
+  - "*.min.css"
+  - "*.map"
+  - "*.pyc"
+
+  # Binary-ish / large data files (diffs are meaningless anyway)
+  - "*.png"
+  - "*.jpg"
+  - "*.jpeg"
+  - "*.gif"
+  - "*.pdf"
+  - "*.zip"
+  - "*.db"
+  - "*.sqlite"
+  - "*.log"

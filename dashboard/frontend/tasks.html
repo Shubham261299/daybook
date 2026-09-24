@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tasks — Daybook Shubham</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <nav>
+    <span class="brand">Daybook Shubham</span>
+    <a href="/">Calendar</a>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/ask">Ask</a>
+    <a href="/tasks" class="active">Tasks</a>
+    <a href="/settings">Projects</a>
+  </nav>
+  <main>
+    <div class="panel">
+      <h2>Tasks</h2>
+      <div id="tasks-open-list"></div>
+      <form id="task-form" class="row" style="margin-top:10px; align-items:flex-end;">
+        <div class="field" style="flex:3;">
+          <label>Add task</label>
+          <input type="text" id="task-text" placeholder="What needs doing..." required />
+        </div>
+        <div class="field" style="flex:1;">
+          <label>Due (optional)</label>
+          <input type="date" id="task-due" />
+        </div>
+        <div class="field" style="flex:1;">
+          <label>Project (optional)</label>
+          <select id="task-project"><option value="">(general)</option></select>
+        </div>
+        <div class="field" style="flex:0;">
+          <button type="submit">Add</button>
+        </div>
+      </form>
+      <div id="tasks-done-toggle"></div>
+      <div id="tasks-done-list" hidden></div>
+    </div>
+  </main>
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/colors.js"></script>
+  <script src="/static/js/tasks.js"></script>
+</body>
+</html>

@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projects — Daybook Shubham</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <nav>
+    <span class="brand">Daybook Shubham</span>
+    <a href="/">Calendar</a>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/ask">Ask</a>
+    <a href="/tasks">Tasks</a>
+    <a href="/settings" class="active">Projects</a>
+  </nav>
+  <main>
+    <div class="panel">
+      <h2>Projects</h2>
+      <div class="banner" id="quiet-banner" hidden></div>
+      <table>
+        <thead>
+          <tr><th>Name</th><th>Path</th><th>Phase</th><th>Department</th><th>Status</th><th></th></tr>
+        </thead>
+        <tbody id="projects-tbody"></tbody>
+      </table>
+    </div>
+
+    <div class="panel" style="margin-top:16px;">
+      <h2>Add project</h2>
+      <form id="add-project-form">
+        <div class="field">
+          <label>Friendly name</label>
+          <input type="text" id="proj-name" required />
+        </div>
+        <div class="field">
+          <label>Local repo path (the folder containing .git)</label>
+          <input type="text" id="proj-path" required />
+        </div>
+        <div class="row">
+          <div class="field">
+            <label>Phase / tag (optional)</label>
+            <input type="text" id="proj-phase" />
+          </div>
+          <div class="field">
+            <label>Department (optional)</label>
+            <input type="text" id="proj-department" />
+          </div>
+        </div>
+        <div id="add-error" style="color:var(--red); font-size:12px; margin-bottom:8px;"></div>
+        <button type="submit">Add project</button>
+      </form>
+    </div>
+  </main>
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/colors.js"></script>
+  <script src="/static/js/settings.js"></script>
+</body>
+</html>

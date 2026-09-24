@@ -1,0 +1,46 @@
+# Runs the dashboard + collector in one container.
+#
+# Setup: copy .env.example to .env, set REPOS_ROOT to the folder that holds the
+# git repos you want to track (forward slashes, e.g. C:/Users/you/code), then
+# `docker compose up -d --build` and open http://127.0.0.1:8510.
+#
+# When you add a project in the dashboard, enter its path as it appears on
+# your machine (e.g. C:/Users/you/code/my-app). REPO_MOUNTS tells the collector
+# to translate anything under REPOS_ROOT to /repos inside the container.
+# Ollama runs on the host and is reached via host.docker.internal.
+services:
+  dashboard:
+    build: .
+    container_name: daybook
+    ports:
+      - "${DASHBOARD_PORT:-8510}:${DASHBOARD_PORT:-8510}"
+    environment:
+      TZ: "${TZ:-UTC}"
+      OLLAMA_HOST: "http://host.docker.internal:11434"
+      OLLAMA_MODEL: "${OLLAMA_MODEL:-llama3.1:8b}"
+      DB_PATH: "/app/data/activity.db"
+      DIFF_STORAGE_PATH: "/app/data/diffs"
+      DIFF_EXCLUSIONS_PATH: "/app/config/diff_exclusions.yaml"
+      DASHBOARD_HOST: "0.0.0.0"
+      DASHBOARD_PORT: "${DASHBOARD_PORT:-8510}"
+      DASHBOARD_PASSWORD: "${DASHBOARD_PASSWORD:-}"
+      QUIET_THRESHOLD_DAYS: "${QUIET_THRESHOLD_DAYS:-7}"
+      REPO_MOUNTS: '[{"host":"${REPOS_ROOT:-./repos}","container":"/repos"}]'
+      COLLECT_INTERVAL_SECONDS: "${COLLECT_INTERVAL_SECONDS:-3600}"
+      EOD_HOUR: "${EOD_HOUR:--1}"
+      # Repos are bind-mounted from the host and owned by another user, which
+      # makes git refuse them ("dubious ownership") unless trusted.
+      GIT_CONFIG_COUNT: "1"
+      GIT_CONFIG_KEY_0: "safe.directory"
+      GIT_CONFIG_VALUE_0: "*"
+    volumes:
+      - ./data:/app/data
+      - type: bind
+        source: "${REPOS_ROOT:-./repos}"
+        target: /repos
+        read_only: true
+        bind:
+          create_host_path: true
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    restart: unless-stopped

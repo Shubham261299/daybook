@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ask — Daybook Shubham</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <nav>
+    <span class="brand">Daybook Shubham</span>
+    <a href="/">Calendar</a>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/ask" class="active">Ask</a>
+    <a href="/tasks">Tasks</a>
+    <a href="/settings">Projects</a>
+  </nav>
+  <main>
+    <div class="panel">
+      <h2>Ask about your work</h2>
+      <p class="empty-state" style="margin-top:-4px;">
+        Try: "summarize last month's work on the API project" or "what did I do this week on the web-app project?"
+      </p>
+      <div class="chat-log" id="chat-log"></div>
+      <form id="ask-form" class="chat-input-row">
+        <textarea id="ask-input" rows="2" placeholder="Ask a question..." required></textarea>
+        <button type="submit">Send</button>
+      </form>
+    </div>
+  </main>
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/ask.js"></script>
+</body>
+</html>

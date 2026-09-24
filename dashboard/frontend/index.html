@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daybook Shubham</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="/static/favicon.svg">
+  <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+  <nav>
+    <span class="brand">Daybook Shubham</span>
+    <a href="/" class="active">Calendar</a>
+    <a href="/dashboard">Dashboard</a>
+    <a href="/ask">Ask</a>
+    <a href="/tasks">Tasks</a>
+    <a href="/settings">Projects</a>
+  </nav>
+  <main>
+    <div class="banner" id="quiet-banner" hidden></div>
+    <div class="panel">
+      <div class="month-header">
+        <h1 id="month-label"></h1>
+        <div class="nav-btns">
+          <button class="secondary" id="collect-btn">Collect now</button>
+          <button class="secondary" id="prev-month">&larr; Prev</button>
+          <button class="secondary" id="next-month">Next &rarr;</button>
+        </div>
+      </div>
+      <div class="calendar-grid" id="calendar-grid"></div>
+    </div>
+    <div class="panel" id="day-detail-panel" style="margin-top:16px;" hidden></div>
+
+    <div class="panel" id="rollup-panel" style="margin-top:16px;">
+      <div class="month-header">
+        <h2 style="margin:0;">Rollup summary</h2>
+        <div class="nav-btns" id="rollup-tabs">
+          <button class="secondary" data-period="week" data-which="this">This week</button>
+          <button class="secondary" data-period="week" data-which="last">Last week</button>
+          <button class="secondary" data-period="month" data-which="this">This month</button>
+          <button class="secondary" data-period="month" data-which="last">Last month</button>
+        </div>
+      </div>
+      <div id="rollup-content"></div>
+    </div>
+  </main>
+  <script src="/static/js/api.js"></script>
+  <script src="/static/js/colors.js"></script>
+  <script src="/static/js/calendar.js"></script>
+  <script src="/static/js/rollups.js"></script>
+</body>
+</html>
