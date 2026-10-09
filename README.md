@@ -1,3 +1,11 @@
+<div align="center">
+
+<img src=".github/banner.svg" width="100%" alt="Shubham AI Lab, system 06 of 07 (Open Source · Mit): Git commits + notes → Collector → SQLite → Local LLM → Daily / weekly / monthly. Stack: FastAPI, SQLite, GitPython, Ollama, Docker.">
+
+[🌐 Portfolio](https://shubham-ai-lab.vercel.app/) · [👤 GitHub profile](https://github.com/Shubham261299) · [💼 LinkedIn](https://www.linkedin.com/in/shubham-jamdar-2571271b3)
+
+</div>
+
 # Daybook
 
 **A local-first work journal: it reads your Git commits, takes your notes and tasks, and has a local LLM write your daily, weekly and monthly engineering summaries.**
