@@ -1,21 +1,30 @@
-<div align="center">
-
-<img src=".github/banner.svg" width="100%" alt="Shubham AI Lab, system 06 of 07 (Open Source · Mit): Git commits + notes → Collector → SQLite → Local LLM → Daily / weekly / monthly. Stack: FastAPI, SQLite, GitPython, Ollama, Docker.">
-
-[🌐 Portfolio](https://shubham-ai-lab.vercel.app/) · [👤 GitHub profile](https://github.com/Shubham261299) · [💼 LinkedIn](https://www.linkedin.com/in/shubham-jamdar-2571271b3)
-
-</div>
+<img src="docs/images/portfolio-cover.webp" width="100%" alt="Daybook: conceptual project artwork matching the portfolio.">
 
 # Daybook
 
-**A local-first work journal: it reads your Git commits, takes your notes and tasks, and has a local LLM write your daily, weekly and monthly engineering summaries.**
+### Turn scattered commits into a readable workday.
 
-![Python](https://img.shields.io/badge/Python-3.13-3776AB?logo=python&logoColor=white)
-![FastAPI](https://img.shields.io/badge/FastAPI-009688?logo=fastapi&logoColor=white)
-![SQLite](https://img.shields.io/badge/SQLite-003B57?logo=sqlite&logoColor=white)
-![Ollama](https://img.shields.io/badge/Ollama-local_LLM-000000)
-![Docker](https://img.shields.io/badge/Docker_Compose-2496ED?logo=docker&logoColor=white)
-![License: MIT](https://img.shields.io/badge/License-MIT-green)
+Collect local Git activity, add notes and tasks, and use a local model to draft daily, weekly and monthly summaries.
+
+**Source available · Local app. Ollama powers summaries; commit collection and notes work without a model.**
+
+**[Explore the case study ↗](https://shubham-ai-lab.vercel.app/work/daybook)** · [Technical guide](#technical-guide) · [More projects](https://shubham-ai-lab.vercel.app/work)
+
+## See it in action
+
+![Existing project screenshot: Daybook](docs/screenshots/summary.png)
+
+*Project screenshot from this repository. The cover above is a conceptual illustration.*
+
+## Engineering receipt
+
+| Decision | Why it matters |
+| --- | --- |
+| Collect first, summarize separately | Frequent collection does not require an LLM call. |
+| Send a compact facts packet | The model receives commit metadata, statistics and notes rather than full patches. |
+| Respect personal edits | Automatic summaries do not overwrite hand-edited entries. |
+
+## Technical guide
 
 ## Why this exists
 
@@ -168,3 +177,4 @@ I built Daybook with Claude Code as my main development tool, using it for plann
 **Shubham Jamdar** · [LinkedIn](https://www.linkedin.com/in/shubham-jamdar-2571271b3) · [GitHub](https://github.com/Shubham261299)
 
 Released under the [MIT License](LICENSE).
+
